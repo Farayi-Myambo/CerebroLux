@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cerebrolux | Illuminating Minds</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* --- Brand Colors --- */
+        :root {
+            --brand-purple: #662f8f;
+            --brand-green: #00a651;
+            --brand-yellow: #fcee21;
+            --brand-black: #000000;
+            --brand-white: #ffffff;
+            --bg-light: #f9f9f9;
+            --header-light-purple: #DAB1DA; 
+        }
+
+        /* --- General Reset --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; } 
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            font-weight: 500;
+            color: var(--brand-black);
+            background-color: var(--brand-white);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 { font-weight: 700; margin-bottom: 1rem; }
+        a { text-decoration: none; color: inherit; }
+
+        /* --- Header --- */
+        header {
+            background-color: var(--header-light-purple); 
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: flex-end; 
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .book-now-btn {
+            background-color: var(--brand-green);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .book-now-btn:hover {
+            background-color: var(--brand-purple);
+            transform: scale(1.05);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background: linear-gradient(135deg, var(--brand-purple) 0%, #4a1f6b 100%);
+            color: var(--brand-white);
+            padding: 4rem 5% 6rem; 
+            text-align: center;
+        }
+        
+        .central-logo {
+            background-color: var(--header-light-purple); 
+            display: inline-flex; 
+            padding: 30px 60px;
+            border-radius: 15px; 
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2); 
+        }
+        .central-logo img {
+            width: 250px;
+            height: auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--brand-yellow);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* --- About & Founders Section --- */
+        .about-section {
+            padding: 4rem 5%;
+            text-align: center;
+            background-color: var(--brand-white);
+        }
+
+        .about-section h2 {
+            color: var(--brand-purple);
+            border-bottom: 4px solid var(--brand-green);
+            display: inline-block;
+            padding-bottom: 10px;
+            margin-bottom: 2rem;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto 3rem;
+            font-size: 1.1rem;
+        }
+
+        .founders-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+
+        .founder-card {
+            max-width: 300px;
+        }
+
+        .founder-img {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--brand-yellow);
+            margin-bottom: 1rem;
+            background-color: #eee;
+        }
+
+        .founder-card h3 { color: var(--brand-purple); margin-bottom: 5px; }
+        .founder-card p { font-size: 0.95rem; color: #555; }
+
+        /* --- Mission & Values --- */
+        .mission-values {
+            background-color: var(--brand-purple);
+            color: white;
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        .mission-box { margin-bottom: 4rem; }
+        .mission-box h2 { color: var(--brand-yellow); }
+        .mission-box p { font-size: 1.8rem; font-weight: 700; }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .value-item {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 15px;
+        }
+        .value-item h4 { color: var(--brand-yellow); margin-bottom: 10px; font-size: 1.2rem; }
+        .value-item p { font-size: 0.9rem; line-height: 1.4; }
+
+        /* --- Pricing Section --- */
+        .services {
+            padding: 4rem 5%;
+            background-color: var(--bg-light);
+            text-align: center;
+        }
+
+        .services h2 {
+            font-size: 2.2rem;
+            color: var(--brand-purple);
+            display: inline-block;
+            border-bottom: 4px solid var(--brand-green);
+            padding-bottom: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .reg-fee-notice {
+            background-color: var(--brand-yellow);
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: var(--brand-purple);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .pricing-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .pricing-card {
+            background: var(--brand-white);
+            border-radius: 15px;
+            padding: 2rem;
+            width: 100%;
+            max-width: 350px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-top: 8px solid;
+            text-align: left;
+        }
+
+        .card-junior { border-color: var(--brand-green); }
+        .card-senior { border-color: var(--brand-purple); }
+
+        .price { font-size: 2.2rem; font-weight: 700; margin: 10px 0 20px 0; color: #333; }
+        .price span { font-size: 1rem; color: #777; font-weight: 500; }
+
+        .subject-list { list-style: none; }
+        .subject-list li {
+            padding: 5px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+        .subject-list li::before {
+            content: "✓";
+            color: var(--brand-green);
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* --- Testimonials --- */
+        .testimonials-section { padding: 4rem 5%; text-align: center; }
+        .testimonials-section h2 { color: var(--brand-purple); margin-bottom: 3rem; border-bottom: 4px solid var(--brand-yellow); display: inline-block; padding-bottom: 10px; }
+        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
+        .testimonial-card { background: var(--bg-light); padding: 25px; border-radius: 10px; text-align: left; border-left: 5px solid var(--brand-green); }
+        .testimonial-quote { font-style: italic; margin-bottom: 15px; color: #444; }
+        .testimonial-source { font-weight: 700; color: var(--brand-purple); font-size: 0.9rem; }
+
+        /* --- Enquiry Section --- */
+        .enquiry-section { background-color: var(--brand-white); padding: 4rem 5%; border-top: 1px solid #ddd; }
+        .enquiry-container { max-width: 800px; margin: 0 auto; background: var(--bg-light); border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .enquiry-header { background-color: var(--brand-purple); color: white; padding: 2rem; text-align: center; }
+        .enquiry-header h2 { color: var(--brand-yellow); }
+        .enquiry-body { padding: 2rem; }
+        .contact-options { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 2rem; }
+        .contact-btn { display: flex; flex-direction: column; align-items: center; padding: 1.5rem; border-radius: 10px; border: 2px solid #ddd; transition: 0.3s; }
+        .contact-btn:hover { border-color: var(--brand-green); background: #fff; }
+        input, textarea, select { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; }
+        .submit-btn { background-color: var(--brand-green); color: white; border: none; padding: 15px; width: 100%; font-weight: 700; border-radius: 8px; cursor: pointer; }
+
+        /* --- Footer & Socials --- */
+        footer { 
+            background: var(--brand-black); 
+            color: #ccc; 
+            text-align: center; 
+            padding: 3rem 5% 1.5rem; 
+        }
+
+        .social-links {
+            margin-bottom: 2rem;
+        }
+
+        .social-links h3 {
+            color: var(--brand-yellow);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .social-icon {
+            font-size: 2.2rem;
+            color: var(--brand-white);
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px);
+            color: var(--brand-green);
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            border-top: 1px solid #333;
+            padding-top: 1.5rem;
+            color: #888;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .central-logo img { width: 180px; }
+            .contact-options { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="#enquire" class="book-now-btn">Book Now</a>
+    </header>
+
+    <section class="hero">
+        <div class="central-logo">
+            <img src="https://i.ibb.co/MxNz4rkx/CLux-logo-Full-Colour-Text-Large-1.png" alt="Cerebrolux Logo">
+        </div>
+        <h1>Illuminating Minds</h1>
+        <p>Expert tutoring in <strong>Mathematics</strong>, <strong>Physical Science</strong>, <strong>Life Sciences</strong>, and <strong>English</strong>.</p>
+    </section>
+
+    <section class="about-section">
+        <h2>About Us</h2>
+        <div class="about-content">
+            <p>CerebroLux was founded by Wits Alumni, Farayi Myambo and Kgothatso Skosana. They are not only passionate about imparting knowledge, but they want to see children fall in love with their education and produce outstanding results. CerebroLux works towards building a successful community by employing graduates and those in pursuit of degrees on an ad hoc basis to assist learners in achieving excellent results.</p>
+        </div>
+
+        <div class="founders-container">
+            <div class="founder-card">
+                <img src="https://i.ibb.co/TDTb03cX/Farayi.png" alt="Farayi Myambo" class="founder-img">
+                <h3>Farayi Myambo</h3>
+                <p>BSc Honours in Geology and Postgraduate Diploma in Business Administration (Wits)</p>
+            </div>
+            <div class="founder-card">
+                <img src="https://i.ibb.co/XfqfHkjH/Kgothatso.png" alt="Kgothatso Skosana" class="founder-img">
+                <h3>Kgothatso Skosana</h3>
+                <p>BSc Degree (Wits) and BSc Honours in Environmental Science (UNISA)</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="mission-values">
+        <div class="mission-box">
+            <h2>Our Mission</h2>
+            <p>“CerebroLux wants to change the trajectory of students' lives”</p>
+        </div>
+        
+        <h2 style="color: var(--brand-yellow); margin-bottom: 2rem;">Our Values</h2>
+        <div class="values-grid">
+            <div class="value-item">
+                <h4>Understanding</h4>
+                <p>We begin by presuming the goodwill of others. We seek first to hear, not tell. To empathise, not criticise.</p>
+            </div>
+            <div class="value-item">
+                <h4>Curiosity</h4>
+                <p>We demonstrate the power of learning by learning. We’re interested and inquisitive, looking beyond what is.</p>
+            </div>
+            <div class="value-item">
+                <h4>Ingenuity</h4>
+                <p>We imagine, create, devise and design. We fashion, we fit, and we form.</p>
+            </div>
+            <div class="value-item">
+                <h4>Ownership</h4>
+                <p>We're accountable for all that we do. We step up and seek responsibility. We own our work.</p>
+            </div>
+            <div class="value-item">
+                <h4>Grit</h4>
+                <p>We do not quit.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="services">
+        <h2>Our Pricing</h2>
+        <br>
+        <div class="reg-fee-notice">Once-off Registration Fee: R250</div>
+        
+        <div class="pricing-container">
+            <div class="pricing-card card-junior">
+                <h3 class="grade-level">Grade 4 - 9</h3>
+                <div class="price">R325 <span>/ hour</span></div>
+                <ul class="subject-list">
+                    <li>Mathematics</li>
+                    <li>Physical Science</li>
+                    <li>Life Sciences</li>
+                    <li>English</li>
+                </ul>
+            </div>
+
+            <div class="pricing-card card-senior">
+                <h3 class="grade-level">Grade 10 - 12</h3>
+                <div class="price">R350 <span>/ hour</span></div>
+                <ul class="subject-list">
+                    <li>Mathematics</li>
+                    <li>Physical Science</li>
+                    <li>Life Sciences</li>
+                    <li>English</li>
+                </ul>
+            </div>
+        </div>
+
+        <div style="margin-top: 4rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+            <h3 style="color: var(--brand-purple);">Our Tutors</h3>
+            <p>CerebroLux sources the best tutors who are recent university graduates or otherwise students in pursuit of degrees who had achieved outstanding results in Matric and are enthusiastic about educating the ones that come after them.</p>
+        </div>
+    </section>
+    
+    <section class="testimonials-section">
+        <h2>Client Success Stories</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-quote">"Cerebrolux completely turned my son's grade 11 Maths around... The tutor was patient and highly effective."</p>
+                <span class="testimonial-source">Parent of a Grade 11 Learner</span>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-quote">"My confidence shot up and I now enjoy the subject. Definitely recommend for anyone needing clarity."</p>
+                <span class="testimonial-source">Grade 10 Learner</span>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-quote">"I saw a 15% improvement in my term average within just one term!"</p>
+                <span class="testimonial-source">Grade 9 Learner</span>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-quote">"The Physical Science sessions were a game-changer. Concepts that seemed impossible to grasp are now my strongest points."</p>
+                <span class="testimonial-source">Grade 12 Learner</span>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-quote">"Finding a tutor who actually cares about my child's confidence as much as their marks was a blessing. Exceptional service!"</p>
+                <span class="testimonial-source">Parent of a Grade 8 Learner</span>
+            </div>
+            <div class="testimonial-card">
+                <p class="testimonial-quote">"My English essay writing improved significantly. I finally understand how to structure my arguments for top marks."</p>
+                <span class="testimonial-source">Grade 11 Learner</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="enquire" class="enquiry-section">
+        <div class="enquiry-container">
+            <div class="enquiry-header">
+                <h2>Ready to Start?</h2>
+                <p>Contact us today to book your first session.</p>
+            </div>
+            <div class="enquiry-body">
+                <form class="email-form" action="mailto:cerebrolux@gmail.com?subject=Request for a tutor" method="post" enctype="text/plain">
+                    <input type="text" name="Parent Name" placeholder="Your Name" required>
+                    <input type="text" name="Student Grade" placeholder="Student Grade (e.g. Grade 10)" required>
+                    <select name="Subject Interest" required>
+                        <option value="" disabled selected>Select Subject</option>
+                        <option value="Mathematics">Mathematics</option>
+                        <option value="Physical Science">Physical Science</option>
+                        <option value="Life Sciences">Life Sciences</option>
+                        <option value="English">English</option>
+                        <option value="Multiple Subjects">Multiple Subjects</option>
+                    </select>
+                    <textarea name="Message" rows="4" placeholder="How can we help you?"></textarea>
+                    <button type="submit" class="submit-btn">Send Enquiry</button>
+                </form>
+                <div class="contact-options">
+                    <a href="tel:0671567546" class="contact-btn">
+                        <span>📞 Call Us</span>
+                        <strong>067 156 7546</strong>
+                    </a>
+                    <a href="mailto:cerebrolux@gmail.com" class="contact-btn">
+                        <span>✉️ Email Us</span>
+                        <strong>cerebrolux@gmail.com</strong>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="social-links">
+            <h3>Follow Our Journey</h3>
+            <div class="social-icons">
+                <a href="https://www.tiktok.com/@cerebroluxtutor?_r=1&_t=ZS-92sQUNGCpGc" target="_blank" class="social-icon" title="TikTok">
+                    <i class="fa-brands fa-tiktok"></i>
+                </a>
+                <a href="https://www.instagram.com/cerebrolux_?igsh=MWdrNHF1bm0zejJjZA==" target="_blank" class="social-icon" title="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2026 Cerebrolux. All Rights Reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
